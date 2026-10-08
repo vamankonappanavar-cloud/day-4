@@ -1,5 +1,5 @@
 
-# Triggering a new build
+# Triggering build with write scope token
 
 name: React CI/CD
 
