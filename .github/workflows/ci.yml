@@ -54,7 +54,7 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/reactapp:latest
 
-      # 8. Deploy to EC2
+            # 8. Deploy to EC2
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1.2.2
         with:
@@ -63,6 +63,6 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/reactapp:latest
-            sudo docker stop reactapp || true
-            sudo docker rm reactapp || true
+            sudo docker stop reactapp my-react-website || true
+            sudo docker rm reactapp my-react-website || true
             sudo docker run -d --name reactapp -p 80:80 ${{ secrets.DOCKERHUB_USERNAME }}/reactapp:latest
