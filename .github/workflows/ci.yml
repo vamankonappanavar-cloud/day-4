@@ -1,4 +1,3 @@
-
 # Triggering build with write scope token
 
 name: React CI/CD
@@ -63,7 +62,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/reactapp:latest
-            docker stop reactapp || true
-            docker rm reactapp || true
-            docker run -d --name reactapp -p 80:80 ${{ secrets.DOCKERHUB_USERNAME }}/reactapp:latest
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/reactapp:latest
+            sudo docker stop reactapp || true
+            sudo docker rm reactapp || true
+            sudo docker run -d --name reactapp -p 80:80 ${{ secrets.DOCKERHUB_USERNAME }}/reactapp:latest
